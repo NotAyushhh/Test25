@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memoir • Shyam Sundar Mahato</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Homemade+Apple&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --paper: #f4f1ea;
+            --ink: #2c2925;
+            --accent: #8c3a3a; /* Faded Red ink */
+            --tape: rgba(255, 255, 255, 0.4);
+            --shadow: rgba(0,0,0,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--paper);
+            color: var(--ink);
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png"); /* Subtle texture */
+        }
+
+        /* Texture Overlay */
+        .texture {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; opacity: 0.4;
+            background: radial-gradient(circle, transparent 60%, #d6d0c0 100%);
+            z-index: 900;
+        }
+
+        /* Typography */
+        h1 { font-family: 'Special Elite', monospace; font-size: 4rem; line-height: 1; margin-bottom: 20px; }
+        h2 { font-family: 'Homemade Apple', cursive; color: var(--accent); font-size: 2.5rem; transform: rotate(-2deg); margin-bottom: 30px; }
+        p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            display: flex; justify-content: space-between; z-index: 1000;
+            mix-blend-mode: multiply;
+        }
+        .nav-brand { font-family: 'Special Elite'; font-weight: bold; font-size: 1.2rem; border-bottom: 2px solid var(--ink); }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;
+            position: relative;
+        }
+        .stamp {
+            border: 3px double var(--accent); color: var(--accent); padding: 10px 20px;
+            font-family: 'Special Elite'; text-transform: uppercase; letter-spacing: 2px;
+            transform: rotate(-10deg); margin-bottom: 40px; opacity: 0.8;
+        }
+
+        /* Polaroid Gallery */
+        .scrapbook-section { padding: 100px 5%; position: relative; }
+        
+        .photo-scatter {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 60px;
+            margin-top: 50px;
+        }
+
+        .polaroid {
+            background: #fff; padding: 15px 15px 40px 15px;
+            box-shadow: 5px 10px 20px var(--shadow);
+            transform: rotate(var(--r));
+            transition: transform 0.4s ease, z-index 0s;
+            position: relative; cursor: pointer;
+            max-width: 300px;
+        }
+        .polaroid:hover { transform: scale(1.1) rotate(0deg); z-index: 10; box-shadow: 10px 20px 40px rgba(0,0,0,0.2); }
+        
+        .polaroid img { width: 100%; height: 250px; object-fit: cover; filter: sepia(30%) contrast(1.1); }
+        
+        /* Tape Effect */
+        .polaroid::before {
+            content: ''; position: absolute; top: -15px; left: 35%; width: 30%; height: 35px;
+            background: var(--tape); transform: rotate(-2deg);
+            backdrop-filter: blur(2px); box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .handwritten-caption {
+            font-family: 'Homemade Apple', cursive; color: #555;
+            text-align: center; margin-top: 15px; font-size: 1rem;
+        }
+
+        /* Timeline as a Journal List */
+        .journal-entry {
+            max-width: 700px; margin: 0 auto 60px;
+            border-left: 2px solid var(--accent); padding-left: 30px;
+            position: relative;
+        }
+        .journal-entry::before {
+            content: '•'; position: absolute; left: -6px; top: 0; color: var(--accent); font-size: 2rem; line-height: 0.5;
+        }
+        .journal-date { font-family: 'Special Elite'; font-size: 0.9rem; color: #666; letter-spacing: 1px; }
+
+        /* Footer */
+        footer { text-align: center; padding: 50px; font-family: 'Special Elite'; font-size: 0.8rem; opacity: 0.6; }
+
+        /* Animations */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: 1s ease; }
+        .visible { opacity: 1; transform: translateY(0); }
+
+    </style>
+</head>
+<body>
+
+    <div class="texture"></div>
+
+    <nav>
+        <div class="nav-brand">1948 — 2025</div>
+        <div style="font-family: 'Special Elite'">SSM</div>
+    </nav>
+
+    <header>
+        <div class="stamp fade-in">Forever in our hearts</div>
+        <h1 class="fade-in">Shyam Sundar<br>Mahato</h1>
+        <p class="fade-in" style="font-style: italic; max-width: 500px;">"A life written in kindness, pages filled with love."</p>
+        <div class="fade-in" style="margin-top: 50px;">↓</div>
+    </header>
+
+    <section class="scrapbook-section">
+        <div style="text-align: center;">
+            <h2>From the Archives</h2>
+        </div>
+
+        <div class="photo-scatter">
+            <div class="polaroid fade-in" style="--r: -4deg">
+                <img src="/wow/IMG-20250131-WA0000.jpg" alt="Memory">
+                <div class="handwritten-caption">Kolkata, '23</div>
+            </div>
+            
+            <div class="polaroid fade-in" style="--r: 3deg">
+                <img src="/wow/IMG-20250131-WA0002.jpg" alt="Memory">
+                <div class="handwritten-caption">That smile...</div>
+            </div>
+
+            <div class="polaroid fade-in" style="--r: -2deg">
+                <img src="/wow/IMG-20250131-WA0003.jpg" alt="Memory">
+                <div class="handwritten-caption">Family time</div>
+            </div>
+
+            <div class="polaroid fade-in" style="--r: 5deg">
+                <img src="/wow/IMG-20250131-WA0016.jpg" alt="Memory">
+                <div class="handwritten-caption">Diwali Night</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="scrapbook-section" style="background: rgba(0,0,0,0.02);">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2>Journal Entries</h2>
+        </div>
+
+        <div class="journal-entry fade-in">
+            <div class="journal-date">APRIL 20, 1948</div>
+            <h3>The Beginning</h3>
+            <p>A humble start in a small town. The ink was just beginning to dry on the first page of his story.</p>
+        </div>
+
+        <div class="journal-entry fade-in">
+            <div class="journal-date">MARCH 1970</div>
+            <h3>Building Foundations</h3>
+            <p>He started the business with nothing but grit and a promise to provide. He worked late nights, fueled by tea and dreams.</p>
+        </div>
+
+        <div class="journal-entry fade-in">
+            <div class="journal-date">WINTER 2010</div>
+            <h3>"Nanu"</h3>
+            <p>The year he became a grandfather. He traded his strict demeanor for soft laughter and storytelling.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Digitally Preserved Memory • 2025</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
